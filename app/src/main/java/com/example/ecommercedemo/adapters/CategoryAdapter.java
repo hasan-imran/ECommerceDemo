@@ -39,7 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         String icon = categoryList.get(position).getCategoryIconLink();
         String name = categoryList.get(position).getCategoryName();
 
-        holder.setTvCategoryName(name);
+        holder.setTvCategoryName(name, position);
 
     }
 
@@ -61,14 +61,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         }
 
-        private void setTvCategoryName(String name){
+        private void setTvCategoryName(String name, int position){
             tvCategoryName.setText(name);
             ivCategoryIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), CategoryActivity.class);
-                    intent.putExtra(CATEGORY_NAME_KEY, name);
-                    itemView.getContext().startActivity(intent);
+                    if(position != 0){
+                        Intent intent = new Intent(v.getContext(), CategoryActivity.class);
+                        intent.putExtra(CATEGORY_NAME_KEY, name);
+                        itemView.getContext().startActivity(intent);
+                    }
                 }
             });
         }
