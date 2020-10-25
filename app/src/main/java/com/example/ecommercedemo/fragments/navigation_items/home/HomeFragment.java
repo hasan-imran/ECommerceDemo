@@ -47,37 +47,6 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rvCategory;
     private CategoryAdapter categoryAdapter;
-
-    ///Banner Slider
-    private ViewPager vpBannerSlider;
-    private List<BannerSliderModel> banners;
-    private BannerSliderAdapter bannerSliderAdapter;
-    private int currentPage;
-    private Timer timer;
-    private final long DELAY = 3000;
-    private final long INTERVAL = 3000;
-    ///Banner Slider
-
-
-    ///Advertisement
-    private ImageView ivAdvertiseImage;
-    private ConstraintLayout clAdItemContainerLayout;
-    ///Advertisement
-
-    ///HorizontalItem
-    private TextView tvHorizontalItemLayoutTitle;
-    private Button btnHorizontalItemLayoutViewAll;
-    private RecyclerView rvHorizontalItemHolder;
-    private HorizontalScrollItemAdapter horizontalScrollItemAdapter;
-    ///HorizontalItem
-
-
-    ///Grid Layout
-    private TextView tvGridItemTitle;
-    private Button btnGridItemViewAll;
-    private GridView gvGridItemHolder;
-    ///Grid Layout
-
     private RecyclerView rvHomePageContainer;
 
 
@@ -117,10 +86,10 @@ public class HomeFragment extends Fragment {
         });
 
 
-        ///Banner Slider
-        vpBannerSlider = root.findViewById(R.id.vpBannerSlider);
+        ////Dummy List To Test the application
 
-        banners = new ArrayList<>();
+        List<BannerSliderModel> banners = new ArrayList<>();
+
         banners.add(new BannerSliderModel(R.drawable.banner_2, "#000000"));
 
         banners.add(new BannerSliderModel(R.drawable.banner_1, "#000000"));
@@ -129,75 +98,6 @@ public class HomeFragment extends Fragment {
         banners.add(new BannerSliderModel(R.drawable.banner_1, "#000000"));
 
 
-        bannerSliderAdapter = new BannerSliderAdapter(banners);
-        vpBannerSlider.setCurrentItem(currentPage);
-        vpBannerSlider.setAdapter(bannerSliderAdapter);
-        vpBannerSlider.setClipToPadding(false);
-        vpBannerSlider.setPageMargin(20);
-
-        ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                currentPage = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                if(state == ViewPager.SCROLL_STATE_IDLE){
-                    pageLooper();
-                }
-            }
-        };
-
-        vpBannerSlider.addOnPageChangeListener(onPageChangeListener);
-
-        startSlide();
-
-        vpBannerSlider.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                pageLooper();
-                stopSlide();
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                    startSlide();
-                }
-                return false;
-            }
-
-
-        });
-
-        ///Banner Slider
-
-
-
-
-
-
-
-        ///Advertisement
-
-        ivAdvertiseImage = root.findViewById(R.id.ivAdvertiseImage);
-        clAdItemContainerLayout = root.findViewById(R.id.clAdItemContainerLayout);
-
-        ivAdvertiseImage.setImageResource(R.drawable.add_1);
-        clAdItemContainerLayout.setBackgroundColor(Color.parseColor("#000000"));
-        ///Advertisement
-
-
-        ///HorizontalItem
-        tvHorizontalItemLayoutTitle = root.findViewById(R.id.tvHorizontalItemLayoutTitle);
-        btnHorizontalItemLayoutViewAll = root.findViewById(R.id.btnHorizontalItemLayoutViewAll);
-        rvHorizontalItemHolder = root.findViewById(R.id.rvHorizontalItemHolder);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvHorizontalItemHolder.setLayoutManager(linearLayoutManager);
-        rvHorizontalItemHolder.setHasFixedSize(true);
 
         List<HorizontalScrollItemModel> horizontalScrollItems = new ArrayList<>();
 
@@ -243,24 +143,7 @@ public class HomeFragment extends Fragment {
                 "Price ৳150,000 TK"));
 
 
-
-        horizontalScrollItemAdapter = new HorizontalScrollItemAdapter(horizontalScrollItems);
-        rvHorizontalItemHolder.setAdapter(horizontalScrollItemAdapter);
-
-        ///HorizontalItem
-
-
-        ///Grid Product
-        tvGridItemTitle = root.findViewById(R.id.tvGridItemTitle);
-        btnGridItemViewAll = root.findViewById(R.id.btnGridItemViewAll);
-        gvGridItemHolder = root.findViewById(R.id.gvGridItemHolder);
-
-        //Checking with previously created item list
-        gvGridItemHolder.setAdapter(new GridProductLayoutAdapter(horizontalScrollItems));
-
-        ///Grid Product
-
-
+        ////Dummy List To Test the application
 
 
         ///////////
@@ -293,41 +176,4 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
-
-    ///Banner Slider
-    private void pageLooper(){
-        if(currentPage == banners.size()-1){
-            currentPage = 1;
-            vpBannerSlider.setCurrentItem(currentPage, false);
-        }
-        else if(currentPage == 0){
-            currentPage = banners.size()-2;
-            vpBannerSlider.setCurrentItem(currentPage, false);
-        }
-    }
-
-    private void startSlide(){
-        Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                if(currentPage>=banners.size()) currentPage = 0;
-                vpBannerSlider.setCurrentItem(currentPage++, true);
-            }
-
-        };
-
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(runnable);
-            }
-        }, DELAY, INTERVAL);
-    }
-
-    private void stopSlide(){
-        timer.cancel();
-    }
-    ///Banner Slider
 }

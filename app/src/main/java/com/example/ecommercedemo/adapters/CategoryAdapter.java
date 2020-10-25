@@ -1,5 +1,6 @@
 package com.example.ecommercedemo.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommercedemo.CategoryActivity;
 import com.example.ecommercedemo.R;
 import com.example.ecommercedemo.models.CategoryModel;
 
@@ -16,6 +18,7 @@ import java.util.List;
 
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryItemsViewHolder> {
+    public static final String CATEGORY_NAME_KEY = "category-name-key";
 
     private List<CategoryModel> categoryList;
 
@@ -60,6 +63,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         private void setTvCategoryName(String name){
             tvCategoryName.setText(name);
+            ivCategoryIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), CategoryActivity.class);
+                    intent.putExtra(CATEGORY_NAME_KEY, name);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
