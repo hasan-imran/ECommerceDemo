@@ -61,7 +61,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Price ৳150,000 TK"
+        android:text="Price ৳150,000"
         android:textSize="10sp"
         android:textStyle="bold"
         android:textColor="#0C0C0C"

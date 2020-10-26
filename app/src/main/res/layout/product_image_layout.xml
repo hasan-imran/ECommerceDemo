@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpProductImages"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlViewPagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tabBackground="@drawable/dot_selector"
+        app:tabRippleColor="@null"
+        app:tabIndicatorHeight="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vpProductImages"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddToWishList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:backgroundTint="@color/white"
+        app:tint="#353434"
+        app:rippleColor="@color/orange"
+        android:elevation="3dp"
+        app:borderWidth="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wishlist_black"
+        app:fabSize="normal"/>
+
+    <TextView
+        android:id="@+id/tvProductDetailsActivityProductTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Product Title"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlViewPagerIndicator" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/banner_slider_shape"
+        android:backgroundTint="@color/dark_sky_blue"
+        android:orientation="horizontal"
+        android:padding="1dp"
+        app:layout_constraintStart_toStartOf="@+id/tvProductDetailsActivityProductTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductDetailsActivityProductTitle">
+
+        <TextView
+            android:id="@+id/tvMiniProductRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="4.5"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_star"
+            app:tint="@color/black" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTotalRatingVotesMini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Total ratings"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tvProductDetailsActivityProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Price ৳150,000"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tvCuttedProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Price ৳170,000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProductDetailsActivityProductPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvProductDetailsActivityProductPrice" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#80000000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCuttedProductPrice"
+        app:layout_constraintEnd_toEndOf="@+id/tvCuttedProductPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvCuttedProductPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvCuttedProductPrice" />
+
+    <ImageView
+        android:id="@+id/ivProductCODIndicator"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCuttedProductPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tlViewPagerIndicator"
+        app:srcCompat="@drawable/cod_indicator" />
+
+    <TextView
+        android:id="@+id/tvProductCODIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Available"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivProductCODIndicator"
+        app:layout_constraintStart_toStartOf="@+id/ivProductCODIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/ivProductCODIndicator" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
