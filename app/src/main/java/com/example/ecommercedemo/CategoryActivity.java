@@ -144,6 +144,10 @@ public class CategoryActivity extends AppCompatActivity {
         if(clickedId == R.id.action_search){
 
         }
+        else if(clickedId == android.R.id.home){
+            onBackPressed();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

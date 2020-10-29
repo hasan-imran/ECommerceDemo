@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingBottom="8dp"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         app:tabBackground="@drawable/dot_selector"
         app:tabRippleColor="@null"
+        android:background="@color/white"
         app:tabIndicatorHeight="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +36,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:clickable="true"
-        android:backgroundTint="@color/white"
-        app:tint="#353434"
+        android:backgroundTint="#FFFFFF"
+        app:tint="#555454"
         app:rippleColor="@color/orange"
         android:elevation="3dp"
         app:borderWidth="0dp"
@@ -64,7 +66,7 @@
         android:background="@drawable/banner_slider_shape"
         android:backgroundTint="@color/dark_sky_blue"
         android:orientation="horizontal"
-        android:padding="1dp"
+        android:padding="3dp"
         app:layout_constraintStart_toStartOf="@+id/tvProductDetailsActivityProductTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvProductDetailsActivityProductTitle">
 
@@ -118,6 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:textColor="#80000000"
         android:text="Price ৳170,000"
         app:layout_constraintBottom_toBottomOf="@+id/tvProductDetailsActivityProductPrice"
         app:layout_constraintStart_toEndOf="@+id/tvProductDetailsActivityProductPrice" />
@@ -148,6 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Available"
+        android:textColor="#80000000"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/ivProductCODIndicator"
         app:layout_constraintStart_toStartOf="@+id/ivProductCODIndicator"

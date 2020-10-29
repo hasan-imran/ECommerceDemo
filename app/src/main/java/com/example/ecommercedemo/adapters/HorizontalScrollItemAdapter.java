@@ -1,5 +1,6 @@
 package com.example.ecommercedemo.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommercedemo.ProductDetailsActivity;
 import com.example.ecommercedemo.R;
 import com.example.ecommercedemo.models.HorizontalScrollItemModel;
 
@@ -61,6 +63,24 @@ public class HorizontalScrollItemAdapter extends RecyclerView.Adapter<Horizontal
             tvHorizontalScrollItemTitle = itemView.findViewById(R.id.tvHorizontalScrollItemPrice);
             tvHorizontalScrollItemSubTitle = itemView.findViewById(R.id.tvHorizontalScrollItemSubTitle);
             tvHorizontalScrollItemPrice = itemView.findViewById(R.id.tvHorizontalScrollItemPrice);
+
+            ivHorizontalScrollItemImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                    itemView.getContext().startActivity(intent);
+
+                }
+            });
+
+            tvHorizontalScrollItemTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                    itemView.getContext().startActivity(intent);
+
+                }
+            });
         }
 
         private void setItemImage(int image){

@@ -1,8 +1,10 @@
 package com.example.ecommercedemo;
 
+import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,6 +13,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.ecommercedemo.adapters.ProductImagesAdapter;
@@ -90,11 +93,12 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         if(clickedId == R.id.fabAddToWishList){
             if(alreadyAddedToWishList){
                 alreadyAddedToWishList = false;
-                fabAddToWishList.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#353434")));
+                fabAddToWishList.setSupportBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#555454")));
             }
             else{
                 alreadyAddedToWishList = true;
-                fabAddToWishList.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
+                //ViewCompat.setBackgroundTintList(fabAddToWishList, ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
+                fabAddToWishList.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
             }
         }
     }

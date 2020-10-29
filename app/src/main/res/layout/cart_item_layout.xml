@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginTop="3dp"
+    android:elevation="3dp">
+
+    <ImageView
+        android:id="@+id/ivCartItemImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iphone_12_pro_max" />
+
+    <TextView
+        android:id="@+id/tvCartItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="iPhone 12x Pro Max"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivCartItemImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCartItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="BDT 150000/-"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvCartItemTitle"
+        app:layout_constraintStart_toEndOf="@+id/ivCartItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvCartItemTitle" />
+
+    <TextView
+        android:id="@+id/tvCartItemCuttedPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="BDT 175000/-"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/tvCartItemPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvCartItemPrice" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCartItemCuttedPrice"
+        app:layout_constraintEnd_toEndOf="@+id/tvCartItemCuttedPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvCartItemCuttedPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvCartItemCuttedPrice" />
+
+    <TextView
+        android:id="@+id/tvCartItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_border"
+        android:drawableEnd="@drawable/ic__arrow_drop_down"
+        android:drawableTint="@color/black"
+        android:elevation="3dp"
+        android:padding="5dp"
+        android:text="Qty: 1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvCartItemPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCartItemTitle" />
+
+    <LinearLayout
+        android:id="@+id/btnRemoveItemFromCart"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/orange"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCartItemImage">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableStart="@drawable/ic_delete"
+            android:drawablePadding="4dp"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:text="  Remove Item"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
