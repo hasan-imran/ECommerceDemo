@@ -93,12 +93,12 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         if(clickedId == R.id.fabAddToWishList){
             if(alreadyAddedToWishList){
                 alreadyAddedToWishList = false;
-                fabAddToWishList.setSupportBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#555454")));
+                fabAddToWishList.setImageTintList(ColorStateList.valueOf(Color.parseColor("#555454")));
             }
             else{
                 alreadyAddedToWishList = true;
                 //ViewCompat.setBackgroundTintList(fabAddToWishList, ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
-                fabAddToWishList.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
+                fabAddToWishList.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
             }
         }
     }

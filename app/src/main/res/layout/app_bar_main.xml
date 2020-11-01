@@ -20,6 +20,7 @@
 
 
             <ImageView
+                android:id="@+id/ivAppBarLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"

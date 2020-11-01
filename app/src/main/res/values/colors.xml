@@ -13,4 +13,8 @@
     <color name="sky_blue">#4fc3f7</color>
     <color name="light_sky_blue">#8bf6ff</color>
     <color name="dark_sky_blue">#0093c4</color>
+    <color name="status_indicator_green">#30F80C</color>
+    <color name="status_indicator_red">#D50000</color>
+    <color name="grey">#bebebe</color>
+    <color name="star_selected">#ffbb00</color>
 </resources>
