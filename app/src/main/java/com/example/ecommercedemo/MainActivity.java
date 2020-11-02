@@ -8,8 +8,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.ecommercedemo.fragments.navigation_items.home.HomeFragment;
+import com.example.ecommercedemo.fragments.navigation_items.myaccount.MyAccountFragment;
 import com.example.ecommercedemo.fragments.navigation_items.mycart.MyCartFragment;
 import com.example.ecommercedemo.fragments.navigation_items.myorders.MyOrdersFragment;
+import com.example.ecommercedemo.fragments.navigation_items.mywishlist.MyWishlistFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final int HOME_FRAGMENT = 0;
     public static final int CART_FRAGMENT = 1;
     public static final int MY_ORDERS_FRAGMENT = 2;
+    public static final int MY_WISHLIST_FRAGMENT = 3;
+    public static final int MY_ACCOUNT_FRAGMENT = 4;
 
     private AppBarConfiguration mAppBarConfiguration;
     private FrameLayout flMainLayout;
@@ -123,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //drawer.closeDrawers();
         }
         else if(clickedId == R.id.nav_my_wishlist){
-
+            goToFragment("My WishList", new MyWishlistFragment(), MY_WISHLIST_FRAGMENT);
         }
         else if(clickedId == R.id.nav_my_rewards){
 
@@ -133,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //drawer.closeDrawers();
         }
         else if(clickedId == R.id.nav_my_account){
-
+            goToFragment("My Account", new MyAccountFragment(), MY_ACCOUNT_FRAGMENT);
         }
         else if(clickedId == R.id.nav_sign_out){
 
@@ -158,6 +162,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(fragmentNo == CART_FRAGMENT){
             navigationView.getMenu().getItem(NAV_MY_CART_INDEX).setChecked(true);
         }
+        else if(fragmentNo == MY_WISHLIST_FRAGMENT){
+            navigationView.getMenu().getItem(NAV_MY_WISHLIST_INDEX).setChecked(true);
+        }
+        else if(fragmentNo == MY_ACCOUNT_FRAGMENT){
+            navigationView.getMenu().getItem(NAV_MY_ACCOUNT_INDEX).setChecked(true);
+        }
     }
 
     private void  setFragment(Fragment fragment, int fragmentNo){
@@ -167,5 +177,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else{
+            if(currentFragment == HOME_FRAGMENT) super.onBackPressed();
+            else{
+                getSupportActionBar().setDisplayShowTitleEnabled(false);
+                ivAppBarLogo.setVisibility(View.VISIBLE);
+                invalidateOptionsMenu();
+                setFragment(new HomeFragment(), HOME_FRAGMENT);
+                navigationView.getMenu().getItem(NAV_HOME_INDEX).setChecked(true);
+            }
+        }
+    }
 }

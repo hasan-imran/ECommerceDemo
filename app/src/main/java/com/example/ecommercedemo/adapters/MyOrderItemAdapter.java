@@ -1,5 +1,6 @@
 package com.example.ecommercedemo.adapters;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommercedemo.OrderDetailsActivity;
 import com.example.ecommercedemo.R;
 import com.example.ecommercedemo.models.MyOrderItemModel;
 
@@ -61,6 +63,14 @@ public class MyOrderItemAdapter extends RecyclerView.Adapter<MyOrderItemAdapter.
             tvMyOrderItemTitle = itemView.findViewById(R.id.tvMyOrderItemTitle);
             tvMyOrderDeliveryStatus = itemView.findViewById(R.id.tvMyOrderDeliveryStatus);
             llRatingContainer = itemView.findViewById(R.id.llRatingContainer);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentToStartOrderDetails = new Intent(itemView.getContext(), OrderDetailsActivity.class);
+                    itemView.getContext().startActivity(intentToStartOrderDetails);
+                }
+            });
         }
 
         private void setMyOrderItemDetails(int itemImage, int itemRating, String itemTitle, String itemDeliveryStatus){

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:elevation="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivWishListItemImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iphone_12_pro_max" />
+
+    <TextView
+        android:id="@+id/tvWishlistItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="iPhone 12 Max Pro"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivWishListItemImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/banner_slider_shape"
+        android:backgroundTint="@color/dark_sky_blue"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        app:layout_constraintStart_toEndOf="@+id/ivWishListItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvWishlistItemTitle">
+
+        <TextView
+            android:id="@+id/tvWishListItemRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="4.5"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_star_black"
+            app:tint="@color/black" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvWishlistItemTotalRatings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Total ratings"
+        android:textColor="#737272"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tvWishlistItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="BDT 150000/-"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ivWishListItemImage"
+        app:layout_constraintStart_toEndOf="@+id/ivWishListItemImage" />
+
+    <ImageView
+        android:id="@+id/ivWishlistItemDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWishlistItemTotalRatings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvWishlistItemTotalRatings"
+        app:srcCompat="@drawable/ic_delete"
+        app:tint="@color/black"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvWishListItemCuttedPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="BDT 175000/-"
+        android:textColor="#737272"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWishlistItemPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvWishlistItemPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvWishlistItemPrice" />
+
+    <View
+        android:id="@+id/priceCutter"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#737272"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWishListItemCuttedPrice"
+        app:layout_constraintEnd_toEndOf="@+id/tvWishListItemCuttedPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvWishListItemCuttedPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvWishListItemCuttedPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>

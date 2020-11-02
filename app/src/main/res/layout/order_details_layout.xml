@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:elevation="3dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivOrderDetailsItemImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iphone_12_pro_max" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="iPhone 12 Max Pro"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="BDT 150000/-"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsItemImage"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_border"
+        android:text="Qty: 1"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsItemImage"
+        app:layout_constraintEnd_toStartOf="@+id/ivOrderDetailsItemImage" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOrderDetailsItemImage" />
+
+    <ImageView
+        android:id="@+id/ivOrderDetailsOrderedIndicator"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        app:srcCompat="@drawable/selected_dot"
+        app:tint="@color/status_indicator_green" />
+
+    <ProgressBar
+        android:id="@+id/pbOrderDetailsOrderedPacked"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
+        android:progress="100"
+        android:progressTint="@color/status_indicator_green"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintStart_toStartOf="@+id/ivOrderDetailsOrderedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsOrderedIndicator" />
+
+    <ImageView
+        android:id="@+id/ivOrderDetailsPackedIndicator"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOrderDetailsOrderedIndicator"
+        app:srcCompat="@drawable/selected_dot"
+        app:tint="@color/status_indicator_green" />
+    />
+
+    <ProgressBar
+        android:id="@+id/pbOrderDetailsPackedShipped"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
+        android:progress="100"
+        android:progressTint="@color/status_indicator_green"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintStart_toStartOf="@+id/ivOrderDetailsPackedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsPackedIndicator" />
+
+    <ImageView
+        android:id="@+id/ivOrderDetailsShippedIndicator"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOrderDetailsPackedIndicator"
+        app:srcCompat="@drawable/selected_dot"
+        app:tint="@color/status_indicator_green" />
+    />
+
+    <ProgressBar
+        android:id="@+id/pbOrderDetailsShippedDelivered"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
+        android:progress="100"
+        android:progressTint="@color/status_indicator_green"
+        android:rotation="90"
+        android:transformPivotX="0dp"
+        app:layout_constraintStart_toStartOf="@+id/ivOrderDetailsShippedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsShippedIndicator" />
+
+    <ImageView
+        android:id="@+id/ivOrderDetailsDeliveredIndicator"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOrderDetailsShippedIndicator"
+        app:srcCompat="@drawable/selected_dot"
+        app:tint="@color/status_indicator_green" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsOrderedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Ordered"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsOrderedIndicator"
+        app:layout_constraintStart_toEndOf="@+id/ivOrderDetailsOrderedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsOrderedIndicator" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsOrderedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1st November, 2020 at 7.30 P.M."
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetailsOrderedTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetailsOrderedTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetailsOrderedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsOrderedStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your order has been placed"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderDetailsOrderedTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderDetailsOrderedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsPackedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Packed"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsPackedIndicator"
+        app:layout_constraintStart_toEndOf="@+id/ivOrderDetailsPackedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsPackedIndicator" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsPackedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1st November, 2020 at 7.30 P.M."
+        android:textSize="12sp"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetailsPackedTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetailsPackedTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetailsPackedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsPackedStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:text="Your order has ben packed"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderDetailsPackedTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderDetailsPackedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsShippedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Shipped"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsShippedIndicator"
+        app:layout_constraintStart_toEndOf="@+id/ivOrderDetailsShippedIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsShippedIndicator" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsShippedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1st November, 2020 at 7.30 P.M."
+        android:textSize="12sp"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetailsShippedTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetailsShippedTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetailsShippedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsShippedStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your order has been shipped "
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderDetailsShippedTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderDetailsShippedTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsDeliveredTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Delivered"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrderDetailsDeliveredIndicator"
+        app:layout_constraintStart_toEndOf="@+id/ivOrderDetailsDeliveredIndicator"
+        app:layout_constraintTop_toTopOf="@+id/ivOrderDetailsDeliveredIndicator" />
+
+    <TextView
+        android:id="@+id/ivOrderDetailsDeliveredDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1st November, 2020 at 7.30 P.M."
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetailsDeliveredTitle"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetailsDeliveredTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetailsDeliveredTitle" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailsDeliveredStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your order has been delivered"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderDetailsDeliveredTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderDetailsDeliveredTitle" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOrderDetailsDeliveredStatus" />
+    />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Your Ratings"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+    <LinearLayout
+        android:id="@+id/llRatingContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="3dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+        <ImageView
+            android:id="@+id/ivRatingStarOne"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_star_yellow" />
+
+        <ImageView
+            android:id="@+id/ivRatingStarTwo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_star_yellow" />
+
+        <ImageView
+            android:id="@+id/ivRatingStarThree"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_star_yellow" />
+
+        <ImageView
+            android:id="@+id/ivRatingStarFour"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_star_yellow" />
+
+        <ImageView
+            android:id="@+id/ivRatingStarFive"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_star_yellow" />
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
