@@ -1,6 +1,7 @@
 package com.example.ecommercedemo;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     private ViewPager vpProductImages;
     private TabLayout tlViewPagerIndicator;
     private FloatingActionButton fabAddToWishList;
+    private Button btnBuyNow;
 
 
     @Override
@@ -47,6 +50,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         vpProductImages = findViewById(R.id.vpProductImages);
         tlViewPagerIndicator = findViewById(R.id.tlViewPagerIndicator);
         tlViewPagerIndicator.setupWithViewPager(vpProductImages, true);
+
+        btnBuyNow = findViewById(R.id.btnBuyNow);
+        btnBuyNow.setOnClickListener(this);
 
         List<Integer> productImages = new ArrayList<>();
         productImages.add(R.drawable.iphone_12_pro_max);
@@ -100,6 +106,10 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                 //ViewCompat.setBackgroundTintList(fabAddToWishList, ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
                 fabAddToWishList.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.sky_blue)));
             }
+        }
+        else if(clickedId == R.id.btnBuyNow){
+            Intent intent = new Intent(ProductDetailsActivity.this, DeliveryActivity.class);
+            startActivity(intent);
         }
     }
 }
