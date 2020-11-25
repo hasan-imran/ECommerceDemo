@@ -80,6 +80,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
 
         int clickedItemId = item.getItemId();
         if(clickedItemId == R.id.action_cart){
+            Intent intent = new Intent(ProductDetailsActivity.this, MainActivity.class);
+            MainActivity.showCart = true;
+            startActivity(intent);
             return true;
         }
         else if(clickedItemId == R.id.action_search){

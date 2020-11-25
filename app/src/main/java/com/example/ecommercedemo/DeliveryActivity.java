@@ -18,8 +18,12 @@ import com.example.ecommercedemo.models.CartItemModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.ecommercedemo.Constants.SELECT_ADDRESS;
+
 
 public class DeliveryActivity extends AppCompatActivity implements View.OnClickListener {
+
+
 
     private Toolbar toolbar;
     private RecyclerView rvDeliveryItems;
@@ -85,6 +89,7 @@ public class DeliveryActivity extends AppCompatActivity implements View.OnClickL
         }
         else if(clickedId == R.id.btnMyAccountAddressViewAll){
             Intent intent = new Intent(DeliveryActivity.this, MyAddressesActivity.class);
+            intent.putExtra(Constants.ADDRESS_MODE_KEY, Constants.SELECT_ADDRESS);
             startActivity(intent);
         }
     }

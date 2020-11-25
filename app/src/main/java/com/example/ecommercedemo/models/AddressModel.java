@@ -1,14 +1,26 @@
 package com.example.ecommercedemo.models;
 
+import android.widget.ImageView;
+
 public class AddressModel {
     private String fullName;
     private String address;
     private String pinCode;
+    private boolean isAddressSelected;
 
-    public AddressModel(String fullName, String address, String pinCode) {
+    public AddressModel(String fullName, String address, String pinCode, boolean isAddressSelected) {
         this.fullName = fullName;
         this.address = address;
         this.pinCode = pinCode;
+        this.isAddressSelected = isAddressSelected;
+    }
+
+    public boolean isAddressSelected() {
+        return isAddressSelected;
+    }
+
+    public void setAddressSelected(boolean addressSelected) {
+        isAddressSelected = addressSelected;
     }
 
     public String getFullName() {

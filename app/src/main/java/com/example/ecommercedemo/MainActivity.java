@@ -1,9 +1,14 @@
 package com.example.ecommercedemo;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -24,7 +29,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public static final int NAV_HOME_INDEX = 0;
     public static final int NAV_MY_ORDERS_INDEX = 1;
@@ -40,16 +45,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final int MY_WISHLIST_FRAGMENT = 3;
     public static final int MY_ACCOUNT_FRAGMENT = 4;
 
+    public static boolean showCart = false;
+
     private AppBarConfiguration mAppBarConfiguration;
     private FrameLayout flMainLayout;
     private NavigationView navigationView;
     private ImageView ivAppBarLogo;
 
-
     private DrawerLayout drawer;
 
-    private static int currentFragment;
+    private int currentFragment = -1;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,17 +83,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
 
-        setFragment(new HomeFragment(), HOME_FRAGMENT);
+        if(showCart){
+            drawer.setDrawerLockMode(1);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            goToFragment("My Cart", new MyCartFragment(), -2);
+        }
+        else{
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+            setFragment(new HomeFragment(), HOME_FRAGMENT);
+        }
     }
 
     @Override
@@ -104,7 +119,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int clickedId = item.getItemId();
 
         if(clickedId == R.id.action_cart){
-            goToFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+            Dialog signInDialog = new Dialog(MainActivity.this);
+            signInDialog.setContentView(R.layout.dialog_sign_in);
+            signInDialog.setCancelable(true);
+            signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+
+            Button btnDialogSignIn = signInDialog.findViewById(R.id.btnDialogSignIn);
+            Button btnDialogSignUp = signInDialog.findViewById(R.id.btnDialogSignUp);
+
+            btnDialogSignIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    RegisterActivity.setSignUpFragment = false;
+                    startActivity(intent);
+                }
+            });
+            btnDialogSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    RegisterActivity.setSignUpFragment = true;
+                    startActivity(intent);
+                }
+            });
+            signInDialog.show();
+
+            //goToFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
             return true;
         }
         else if(clickedId == R.id.action_notifications){
@@ -112,6 +155,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if(clickedId == R.id.action_search){
 
+        }
+        else if(clickedId == android.R.id.home){
+            if(showCart){
+                onBackPressed();
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -184,13 +233,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         }
         else{
-            if(currentFragment == HOME_FRAGMENT) super.onBackPressed();
+            if(currentFragment == HOME_FRAGMENT) {
+                currentFragment = -1;
+                super.onBackPressed();
+            }
             else{
-                getSupportActionBar().setDisplayShowTitleEnabled(false);
-                ivAppBarLogo.setVisibility(View.VISIBLE);
-                invalidateOptionsMenu();
-                setFragment(new HomeFragment(), HOME_FRAGMENT);
-                navigationView.getMenu().getItem(NAV_HOME_INDEX).setChecked(true);
+
+                if(showCart){
+                    showCart = false;
+                    //onBackPressed();
+                    finish();
+                }
+                else {
+                    getSupportActionBar().setDisplayShowTitleEnabled(false);
+                    ivAppBarLogo.setVisibility(View.VISIBLE);
+                    invalidateOptionsMenu();
+                    setFragment(new HomeFragment(), HOME_FRAGMENT);
+                    navigationView.getMenu().getItem(NAV_HOME_INDEX).setChecked(true);
+                }
             }
         }
     }

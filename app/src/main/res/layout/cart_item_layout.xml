@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="BDT 175000/-"
+        android:textColor="#272727"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tvCartItemPrice"
         app:layout_constraintTop_toBottomOf="@+id/tvCartItemPrice" />
@@ -60,7 +61,7 @@
         android:id="@+id/divider2"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
+        android:background="#4A4A4A"
         app:layout_constraintBottom_toBottomOf="@+id/tvCartItemCuttedPrice"
         app:layout_constraintEnd_toEndOf="@+id/tvCartItemCuttedPrice"
         app:layout_constraintStart_toStartOf="@+id/tvCartItemCuttedPrice"
@@ -79,6 +80,7 @@
         android:text="Qty: 1"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/tvCartItemPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCartItemTitle" />

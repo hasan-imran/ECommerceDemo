@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:layout_marginTop="4dp"
     android:layout_marginEnd="4dp"
+    android:foreground="?attr/selectableItemBackground"
     android:elevation="3dp">
 
     <TextView
@@ -20,7 +21,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvAddressItemSelected"
+        app:layout_constraintEnd_toStartOf="@+id/ivAddressItemSelectedIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,11 +56,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAddressItemAddress" />
 
     <ImageView
-        android:id="@+id/tvAddressItemSelected"
+        android:id="@+id/ivAddressItemSelectedIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check"
@@ -67,14 +68,16 @@
 
     <LinearLayout
         android:id="@+id/llAddressItemMoreOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/grey"
+        android:background="@drawable/banner_slider_shape"
+        android:backgroundTint="#EDEBEB"
         android:elevation="6dp"
         android:orientation="vertical"
-        android:visibility="gone"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -83,13 +86,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingTop="6dp"
+            android:paddingTop="8dp"
             android:paddingEnd="16dp"
-            android:paddingBottom="6dp"
+            android:paddingBottom="8dp"
             android:text="Edit"
             android:textAlignment="center"
             android:textColor="#98000000"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -97,13 +100,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingTop="6dp"
+            android:paddingTop="8dp"
             android:paddingEnd="16dp"
-            android:paddingBottom="6dp"
+            android:paddingBottom="8dp"
             android:text="Remove"
             android:textAlignment="center"
             android:textColor="#98000000"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

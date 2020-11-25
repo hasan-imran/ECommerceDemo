@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.example.ecommercedemo.fragments.signinsignup.SignInFragment;
+import com.example.ecommercedemo.fragments.signinsignup.SignUpFragment;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FrameLayout flRegister;
+    public static boolean setSignUpFragment = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         flRegister = findViewById(R.id.flRegister);
 
-        setFragment(new SignInFragment());
+        if(setSignUpFragment){
+            setSignUpFragment = false;
+            setFragment(new SignUpFragment());
+        }
+        else{
+            setFragment(new SignInFragment());
+        }
     }
 
     private void setFragment(Fragment fragment){

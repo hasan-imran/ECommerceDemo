@@ -57,7 +57,7 @@ public class MyWishlistFragment extends Fragment {
         wishlistItems.add(new WishlistItemModel(R.drawable.iphone_12_pro_max, "iPhone 12 Pro Max", "4.5",
                 "1754", "BDT 150000/-", "BDT 175000/-"));
 
-        wishlistItemAdapter = new WishlistItemAdapter(wishlistItems);
+        wishlistItemAdapter = new WishlistItemAdapter(wishlistItems, true);
 
         rvWishlistItemHolder.setAdapter(wishlistItemAdapter);
         wishlistItemAdapter.notifyDataSetChanged();

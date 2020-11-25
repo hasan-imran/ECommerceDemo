@@ -25,8 +25,9 @@ public class GridProductLayoutAdapter  extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if(gridProductList.size() < 6) return gridProductList.size();
-        return 6;
+//        if(gridProductList.size() < 6) return gridProductList.size();
+//        return 6;
+        return gridProductList.size();
     }
 
     @Override
@@ -45,8 +46,8 @@ public class GridProductLayoutAdapter  extends BaseAdapter {
         if(convertView == null){
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             view = inflater.inflate(R.layout.horizontal_scroll_item_layout, parent, false);
-//            view.setElevation(0);
-//            view.setBackgroundColor(Color.parseColor("#ffffff"));
+            view.setElevation(0);
+            view.setBackgroundColor(Color.parseColor("#ffffff"));
 
             ImageView ivProductImage = view.findViewById(R.id.ivHorizontalScrollItemImage);
             TextView tvProductTitle = view.findViewById(R.id.tvHorizontalScrollItemTitle);

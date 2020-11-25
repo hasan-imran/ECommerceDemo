@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +28,7 @@ public class MyAddressesActivity extends AppCompatActivity implements View.OnCli
     private RecyclerView rvDeliveryAddresses;
     private LinearLayout llBtnAddNewAddress;
     private Button btnDeliverHere;
-    private AddressAdapter addressAdapter;
+    private static AddressAdapter addressAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +55,33 @@ public class MyAddressesActivity extends AppCompatActivity implements View.OnCli
         rvDeliveryAddresses.setLayoutManager(layoutManager);
 
         List<AddressModel> addresses = new ArrayList<>();
-        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221"));
-        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221"));
-        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221"));
-        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221"));
-        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221"));
+        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221", true));
+        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221", false));
+        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221", false));
+        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221", false));
+        addresses.add(new AddressModel("Md Imran Hasan", "Parkmore, Rangpur, 5400", "1221", false));
 
 
-        addressAdapter = new AddressAdapter(addresses);
+        Intent intent = getIntent();
+        int addressMode = intent.getIntExtra(Constants.ADDRESS_MODE_KEY, -1);
+
+        if(addressMode == Constants.MODIFY_ADDRESS){
+            btnDeliverHere.setVisibility(View.GONE);
+        }
+        else if(addressMode == Constants.SELECT_ADDRESS){
+
+        }
+        addressAdapter = new AddressAdapter(addresses, addressMode);
         rvDeliveryAddresses.setAdapter(addressAdapter);
         rvDeliveryAddresses.setHasFixedSize(true);
+        ((SimpleItemAnimator) rvDeliveryAddresses.getItemAnimator()).setSupportsChangeAnimations(false);
         addressAdapter.notifyDataSetChanged();
+    }
+
+    public static void refreshItem(int selected, int deSelected){
+            addressAdapter.notifyItemChanged(selected);
+            addressAdapter.notifyItemChanged(deSelected);
+
     }
 
     @Override

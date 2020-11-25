@@ -90,12 +90,15 @@ public class HomeFragment extends Fragment {
 
         List<BannerSliderModel> banners = new ArrayList<>();
 
-        banners.add(new BannerSliderModel(R.drawable.banner_2, "#000000"));
+       // banners.add(new BannerSliderModel(R.drawable.banner_2, "#000000"));
 
         banners.add(new BannerSliderModel(R.drawable.banner_1, "#000000"));
         banners.add(new BannerSliderModel(R.drawable.banner_2, "#000000"));
+        banners.add(new BannerSliderModel(R.drawable.ic_cart_black, "#000000"));
+        banners.add(new BannerSliderModel(R.drawable.ic__arrow_drop_down, "#000000"));
+        banners.add(new BannerSliderModel(R.drawable.ic_account_black, "#000000"));
 
-        banners.add(new BannerSliderModel(R.drawable.banner_1, "#000000"));
+       // banners.add(new BannerSliderModel(R.drawable.banner_1, "#000000"));
 
 
 
@@ -166,6 +169,32 @@ public class HomeFragment extends Fragment {
 
         //showing grid products
         homePageModelList.add(new HomePageModel(3, "Grid Items", horizontalScrollItems));
+
+         //showing advertise
+        homePageModelList.add(new HomePageModel(1, R.drawable.add_1, "#000000"));
+
+        //showing horizontal products
+        homePageModelList.add(new HomePageModel(2, "Horizontal Products", horizontalScrollItems));
+
+        //showing banners
+        homePageModelList.add(new HomePageModel(0, banners));
+
+        //showing grid products
+        homePageModelList.add(new HomePageModel(3, "Grid Items", horizontalScrollItems));
+
+         //showing advertise
+        homePageModelList.add(new HomePageModel(1, R.drawable.add_1, "#000000"));
+
+        //showing horizontal products
+        homePageModelList.add(new HomePageModel(2, "Horizontal Products", horizontalScrollItems));
+
+        //showing banners
+        homePageModelList.add(new HomePageModel(0, banners));
+
+        //showing grid products
+        homePageModelList.add(new HomePageModel(3, "Grid Items", horizontalScrollItems));
+
+        
 
         HomePageAdapter homePageAdapter = new HomePageAdapter(homePageModelList);
         rvHomePageContainer.setAdapter(homePageAdapter);
